@@ -47,3 +47,11 @@ D:\git\SharpVkBot-master\testBot\bin\Debug\testBot.pdb
 D:\git\SharpVkBot-master\testBot\bin\Debug\AIMLbot.pdb
 D:\git\SharpVkBot-master\testBot\obj\Debug\testBot.csprojResolveAssemblyReference.cache
 D:\git\SharpVkBot-master\testBot\bin\Debug\VkNetExtend.dll
+D:\git\vkbot\testBot\bin\Debug\testBot.exe.config
+D:\git\vkbot\testBot\obj\Debug\testBot.exe
+D:\git\vkbot\testBot\obj\Debug\testBot.pdb
+D:\git\vkbot\testBot\bin\Debug\testBot.exe
+D:\git\vkbot\testBot\bin\Debug\testBot.pdb
+D:\git\vkbot\testBot\bin\Debug\VkNetExtend.dll
+D:\git\vkbot\testBot\bin\Debug\AIMLbot.pdb
+D:\git\vkbot\testBot\obj\Debug\testBot.csprojResolveAssemblyReference.cache
