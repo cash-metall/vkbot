@@ -56,7 +56,9 @@ namespace testBot
                         reply = superpost(mes) ? "готово" : "ошибка!";
                         break;
                     default:
-                        reply = bot.getOutput(mes.Body);
+                        string ms = mes.Body;
+                        ms = ms.Replace("пес", "");
+                        reply = bot.getOutput(ms);
                         break;
 
                 }
@@ -70,6 +72,9 @@ namespace testBot
            
             Console.WriteLine(reply);
             Console.WriteLine("======================================");
+            if ((mes.ChatId > 0) && (!mes.Body.Contains("пес"))) return;
+            if (mes.ContainsEmojiSmiles) sendmsg(reply, mes.ChatId, mes.UserId,1);
+            else
             sendmsg(reply, mes.ChatId, mes.UserId);
 
         }
@@ -88,18 +93,27 @@ namespace testBot
                 body += "\nchatID: " + a.ChatId;
                 body += "\nsmile: " + a.ContainsEmojiSmiles.ToString();
                 body += "\nID: " + a.Id;
-
-
+                body += "\nOwnerID: " + a.OwnerId;
+                body += "\nPhoto200: " + a.Photo200;
+                body += "\nUserID: " + a.UserId;
+                body += "\nID: " + a.UsersCount;
+                foreach (VkNet.Model.Attachments.Attachment att in a.Attachments)
+                {
+                    body += "\nAttachment: [" + att.Type.ToString()+"] "+att.ToString();
+                   // if (att.Type.ge)
+                }
             }
             Console.WriteLine(body);
 
         }
-        public void sendmsg(string str, long? chat, long? user)
+        public void sendmsg(string str, long? chat, long? user, uint? smile=0)
         {
             try
             {
-                api.Messages.Send(new MessagesSendParams { Message = str, ChatId = chat, UserId = user });
-
+                if (chat>0)
+                    api.Messages.Send(new MessagesSendParams { Message = str, ChatId = chat, StickerId=smile });
+                else
+                    api.Messages.Send(new MessagesSendParams { Message = str, UserId = user, StickerId = smile });
             }
             catch
             {

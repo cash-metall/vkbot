@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
+using System.IO; 
 
 using VkNet;
 using VkNet.Enums.Filters;
@@ -33,10 +33,9 @@ namespace testBot
                 }
                 else
                 {
-                    List<string> conf = File.ReadAllLines("../../../../config.txt").ToList();
-                    email = conf[0];
-                    pass = conf[1];
-
+                    List<string> conf = File.ReadAllLines("../../../../config.txt").ToList(); 
+                    email = conf[0]; 
+                    pass = conf[1]; 
                 }
                 Settings scope = Settings.All;
                 ApiAuthParams my = new ApiAuthParams
